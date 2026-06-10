@@ -1,0 +1,82 @@
+/* ============================================================
+   animations.css — Keyframes and animated classes
+   ============================================================ */
+
+@keyframes slideInCard {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(0,229,255,0.3); }
+  50%       { box-shadow: 0 0 24px rgba(0,229,255,0.7); }
+}
+
+@keyframes progress-bar {
+  from { width: 0%; }
+  to   { width: var(--target-width); }
+}
+
+@keyframes spin-in {
+  from { transform: rotate(-180deg) scale(0.5); opacity: 0; }
+  to   { transform: rotate(0deg) scale(1); opacity: 1; }
+}
+
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-4px); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+/* Active step highlight */
+.step-node.active {
+  animation: pulse-glow 1.5s ease infinite;
+}
+
+/* Best card in population */
+.pop-card.best {
+  animation: pulse-glow 2s ease infinite;
+}
+
+/* Loading state for button */
+.btn-primary.loading {
+  background: linear-gradient(90deg, var(--accent-blue) 0%, #42a5f5 50%, var(--accent-blue) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s linear infinite;
+  cursor: wait;
+}
+
+/* Staggered card animation for player grid */
+.player-card:nth-child(1)  { animation-delay: 0.00s; }
+.player-card:nth-child(2)  { animation-delay: 0.04s; }
+.player-card:nth-child(3)  { animation-delay: 0.08s; }
+.player-card:nth-child(4)  { animation-delay: 0.12s; }
+.player-card:nth-child(5)  { animation-delay: 0.16s; }
+.player-card:nth-child(6)  { animation-delay: 0.20s; }
+.player-card:nth-child(7)  { animation-delay: 0.24s; }
+.player-card:nth-child(8)  { animation-delay: 0.28s; }
+.player-card:nth-child(9)  { animation-delay: 0.32s; }
+.player-card:nth-child(10) { animation-delay: 0.36s; }
+.player-card:nth-child(11) { animation-delay: 0.40s; }
+.player-card:nth-child(12) { animation-delay: 0.44s; }
+
+.player-card {
+  animation: slideInCard 0.4s ease backwards;
+}
+
+/* Team court cards stagger */
+.team-player-card:nth-child(1) { animation-delay: 0.05s; }
+.team-player-card:nth-child(2) { animation-delay: 0.10s; }
+.team-player-card:nth-child(3) { animation-delay: 0.15s; }
+.team-player-card:nth-child(4) { animation-delay: 0.20s; }
+.team-player-card:nth-child(5) { animation-delay: 0.25s; }
+.team-player-card:nth-child(6) { animation-delay: 0.30s; }
+
+/* Attr bars animate on load */
+.attr-fill {
+  animation: progress-bar 0.8s ease backwards;
+}
