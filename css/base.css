@@ -1,0 +1,229 @@
+/* ============================================================
+   base.css — Variables, Reset, Layout Global
+   Proyecto: AG Selección de Deportistas — CECAR 2026
+   ============================================================ */
+
+:root {
+  /* Colors */
+  --bg-dark:       #0a0e17;
+  --bg-mid:        #111827;
+  --bg-card:       #16202e;
+  --bg-card-hover: #1c2a3a;
+  --border:        #1e3a5f;
+  --border-glow:   #1e6fc4;
+
+  --accent-blue:   #1e88e5;
+  --accent-cyan:   #00e5ff;
+  --accent-gold:   #ffd600;
+  --accent-green:  #00e676;
+  --accent-red:    #ff1744;
+  --accent-orange: #ff6d00;
+
+  --text-primary:  #e8f4ff;
+  --text-secondary:#8aacc8;
+  --text-muted:    #4a6a8a;
+
+  /* Typography */
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-body:    'Barlow', sans-serif;
+
+  /* Spacing */
+  --radius:  8px;
+  --radius-lg: 14px;
+  --gap:     16px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-image:
+    radial-gradient(ellipse 80% 40% at 50% -10%, rgba(30,136,229,0.15) 0%, transparent 60%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 39px,
+      rgba(30,100,200,0.04) 39px,
+      rgba(30,100,200,0.04) 40px
+    );
+}
+
+/* ─── Header ──────────────────────────────────────────────── */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10,14,23,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+}
+
+.header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.logo-badge {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: 2px;
+  color: var(--bg-dark);
+  background: var(--accent-cyan);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.logo-title {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.logo-sub {
+  display: block;
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+/* ─── Tab Nav ─────────────────────────────────────────────── */
+.tab-nav {
+  display: flex;
+  gap: 4px;
+}
+
+.tab-btn {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+  color: var(--text-primary);
+  background: rgba(30,136,229,0.12);
+  border-color: var(--border);
+}
+
+.tab-btn.active {
+  color: var(--accent-cyan);
+  background: rgba(0,229,255,0.1);
+  border-color: var(--accent-cyan);
+}
+
+/* ─── Main Wrapper ────────────────────────────────────────── */
+.main-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* ─── Tab Panels ──────────────────────────────────────────── */
+.tab-panel {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Simulator Grid ──────────────────────────────────────── */
+.panel-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* ─── Titles ──────────────────────────────────────────────── */
+.panel-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--accent-cyan);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text-primary);
+}
+
+.section-sub {
+  color: var(--text-secondary);
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+.chart-title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+/* ─── Responsive ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .panel-grid {
+    grid-template-columns: 1fr;
+  }
+  .tab-nav {
+    gap: 2px;
+  }
+  .tab-btn {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+}
